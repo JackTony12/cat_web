@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/cat.ico' />
+    <meta name='generator' content={Astro.generator} />
+    <title>FEELINO | Your adorable page</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Poppins";
+    src: url(/Poppins-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  p,
+  h1,
+  h2,
+  h3 {
+    text-wrap: pretty;
+  }
+  body {
+    margin: 0;
+    /* width: 100%; */
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(
+      65deg,
+      var(--gray),
+      var(--gray2),
+      var(--gray2),
+      var(--gray)
+    );
+  }
+  html {
+    background-color: transparent;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+  }
+  section {
+    margin: 0 0 10em 0;
+  }
+  :root {
+    --gray: #555555;
+    --gray05: #cbcdd1;
+    --gray2: #cacaca;
+    --gray3: #c0c0c0;
+    --white: white;
+    --pink: #f53152;
+    --hoverPink: #d62f4b;
+    --text: rgb(20, 20, 20);
+  }
+  .navButton {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 0.5em 1em;
+    transition: 1s ease;
+    border-radius: 0.4em;
+
+    &:hover {
+      background: var(--gray3);
+    }
+  }
+</style>

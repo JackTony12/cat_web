@@ -1,0 +1,67 @@
+---
+import CatsArray from "./functions/catsArray.jsx"
+---
+
+<section id=''>
+  <div class='cat_content'>
+    <div>
+      <h1>Why don't you have a cat?</h1>
+      <p>
+        Having a cat brings joy, companionship, and endless adorable moments
+      </p>
+      <button>Look your favorite</button>
+    </div>
+  </div>
+  <CatsArray client:load />
+</section>
+
+<style>
+  section {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    padding-top: 10em;
+    > div {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .cat_content {
+    padding: 0 2em;
+    & h1 {
+      color: var(--white);
+      font-weight: bolder;
+      font-size: clamp(3rem, 5vw, 2.5rem);
+    }
+  }
+  .cat_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  p {
+    color: var(--text);
+    margin: 0 0 2em 0;
+  }
+  button {
+    border: none;
+    background: var(--pink);
+    color: var(--white);
+    padding: 0.5em 1em;
+    border-radius: 0.4em;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: clamp(0.8rem, 1.2vw, 1.5rem);
+    &:hover {
+      background: var(--hoverPink);
+    }
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+</style>

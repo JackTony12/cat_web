@@ -1,0 +1,116 @@
+---
+import iconos from "../components/icons.jsx"
+const Icon1 = iconos[0].icon
+const Icon2 = iconos[1].icon
+const Icon3 = iconos[2].icon
+
+import cathome from "../../public/images/catinhome.jpg"
+import { Image } from "astro:assets"
+---
+
+<section class='benefits'>
+  <div class='b_image'>
+    <Image src={cathome} alt='cat' />
+  </div>
+  <div class='b_text'>
+    <div>
+      <h2>Benefits of having a cat at home</h2>
+      <p>
+        Cats are very independent animals, but they're also very affectionate
+        and grateful. Having a cat at home can be a very rewarding experience.
+        Here are some benefits of having a cat at home:
+      </p>
+    </div>
+    <ul>
+      <li>
+        <p>
+          <Icon1 />
+        </p>
+        Reduces stress: A cat's purr has a calming effect and can reduce anxiety.
+      </li>
+      <li>
+        <p>
+          <Icon2 />
+        </p>
+        Improves health: Studies have shown that living with cats can lower blood
+        pressure and the risk of heart disease.
+      </li>
+      <li>
+        <p>
+          <Icon3 />
+        </p>
+        They always make you smile: Their wit and pranks are an antidote to a bad
+        mood.
+      </li>
+    </ul>
+  </div>
+</section>
+<style>
+  section {
+    display: flex;
+    width: 100%;
+    height: 500px;
+    color: var(--text);
+    > div {
+      width: 50%;
+      height: 100%;
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+      mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 70%,
+        rgba(0, 0, 0, 0)
+      );
+    }
+  }
+  h2 {
+    font-size: clamp(1.5em, 2.5vw, 2em);
+  }
+
+  .b_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 3em;
+  }
+  ul {
+    display: flex;
+    width: 100%;
+    gap: 0.4em;
+  }
+  li {
+    list-style: none;
+    width: 33%;
+    font-size: 0.7em;
+    border: 1px solid transparent;
+    padding: 2em 0.5em;
+    border-radius: 1em;
+    position: relative;
+    outline: 1px solid var(--gray);
+    transition: outline 0.5s ease;
+    &:hover {
+      outline-width: 5px;
+    }
+    &:nth-child(1):hover {
+      outline-color: rgb(235, 24, 94);
+    }
+    &:nth-child(2):hover {
+      outline-color: rgb(255, 0, 0);
+    }
+    &:nth-child(3):hover {
+      outline-color: rgb(231, 112, 0);
+    }
+    & > * {
+      transition: 0.4s ease-in-out;
+    }
+    &:hover > * {
+      transform: scale(1.4);
+    }
+
+    & p {
+      text-align: center;
+    }
+  }
+</style>
