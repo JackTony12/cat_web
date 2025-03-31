@@ -3,7 +3,7 @@
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/cat.ico' />
+    <link rel='icon' type='image/svg+xml' href='/src/assets/cat.ico' />
     <meta name='generator' content={Astro.generator} />
     <title>FEELINO | Your adorable page</title>
   </head>
@@ -15,7 +15,7 @@
 <style is:global>
   @font-face {
     font-family: "Poppins";
-    src: url(/Poppins-Regular.ttf) format("truetype");
+    src: url(/fonts/Poppins-Regular.ttf) format("truetype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -41,6 +41,7 @@
   }
   html {
     background-color: transparent;
+    scroll-behavior: smooth;
   }
   * {
     margin: 0;
@@ -70,9 +71,30 @@
     padding: 0.5em 1em;
     transition: 1s ease;
     border-radius: 0.4em;
+    text-decoration: none;
 
     &:hover {
       background: var(--gray3);
     }
   }
+  /* @media (width <= 768px) {
+    section {
+      flex-direction: column;
+      & img {
+        width: 100%;
+      }
+      > div {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  } */
+  /* @media (width > 768px) { */
+  /* seciont {
+      & img {
+        height: 100%;
+      }
+    }
+  } */
 </style>

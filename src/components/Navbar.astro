@@ -1,3 +1,7 @@
+---
+
+---
+
 <nav>
   <div>
     <p>
@@ -17,10 +21,13 @@
     </p>
   </div>
   <ul>
-    <button class='navButton' type='button'>Home</button>
-    <button class='navButton' type='button'>Cats</button>
-    <button class='navButton' type='button'>Contact</button>
-    <button class='navButton' type='button'>About</button>
+    <a href='#cats' class='navButton' name='Cats' type='button'>Cats</a>
+    <a href='#Benefits' class='navButton' name='Benefits' type='button'
+      >Benefits</a
+    >
+    <a href='#History' class='navButton' name='History' type='button'>History</a
+    >
+    <a href='#About' class='navButton' name='About' type='button'>About</a>
   </ul>
 </nav>
 <style>
@@ -61,3 +68,15 @@
     color: var(--pink);
   }
 </style>
+<script>
+  const buttons = document.querySelectorAll(".navButton")
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const sectionId = button.name
+      const section = document.getElementById(`#{sectionId}`)
+      if (section) {
+        section.scroll({ behavior: "smooth" })
+      }
+    })
+  })
+</script>
