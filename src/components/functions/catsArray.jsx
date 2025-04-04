@@ -3,8 +3,8 @@ import "./catscarusel.css"
 
 const CatsArray = () => {
   const cats = [
-    "/images/herocat.png",
-    "/images/herocat1.png",
+    "/images/herocat.webp",
+    "/images/herocat1.webp",
     "images/herocat2.webp",
   ]
   const [catIndex, setCatIndex] = useState(0)
