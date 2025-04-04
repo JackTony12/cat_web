@@ -1,0 +1,145 @@
+---
+import catvideo1 from "../../public/videos/cat1.mp4"
+import bentocat from "../../public/images/bentocat5.jpg"
+import bentocat3 from "../../public/images/bentocat3.jpg"
+import cat4 from "../../public/images/cat4.jpg"
+import cat5 from "../../public/images/cat5.jpg"
+import { Image } from "astro:assets"
+---
+
+<section id='Videos' class='videos'>
+    <div class='parent'>
+        <div class='div1'>
+            <div class='v_tips_1'>
+                <h2>Su lenguaje es principalmente corporal</h2>
+                <p>
+                    Apesar de que su lenguaje berval es increible utilizan
+                    principalmente lenguaje corporal par expresar sus estads de
+                    animo, emocioes y persepciones.
+                </p>
+            </div>
+            <Image src={bentocat3} alt='cat' />
+        </div>
+        <div class='div2'>
+            <Image src={bentocat} alt='cat' />
+            <div class='v_tips'>
+                <h2>Tienen mas huesos que los humanos</h2>
+                <p>
+                    Un gato sano tiene alrededor de 230 huesos, que son 24 más
+                    que el esqueleto humano.
+                </p>
+            </div>
+        </div>
+        <div class='div3'>
+            <video loop autoplay muted src={catvideo1}></video>
+        </div>
+        <div class='div4'>
+            <Image src={cat4} alt='cat' />
+            <div class='v_tips'>
+                <h2>Su nariz, su huella</h2>
+                <p>
+                    Cada uno posee un dieño único e inigualable, en el cogín de
+                    su nariz, más que huellas dactilares podemos decir que
+                    poseen huellas nasales.
+                </p>
+            </div>
+        </div>
+        <div class='div5'>
+            <Image src={cat5} alt='cat' />
+            <div class='v_tips_1'>
+                <h2>Lanzada al cosmos</h2>
+                <p>
+                    El 18 de octubre de 1963, Félicette tambien conocida como
+                    (Astrocat), fue la primera y unica gata que fue al espacio
+                    exterior, fue lanzada al espacio por la agencia espacial
+                    francesa CNES, en un cohete suborbital Véronique AG1.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    video {
+        width: 100%;
+        object-fit: cover;
+    }
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        gap: 8px;
+        & img,
+        & video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        > div {
+            border-radius: 1em;
+            overflow: hidden;
+            position: relative;
+            &:hover .v_tips_1 {
+                bottom: 0;
+                transition: 0.5s ease;
+            }
+            &:hover .v_tips {
+                bottom: 0;
+                transition: 0.5s ease;
+            }
+        }
+    }
+
+    .div1 {
+        grid-column: span 2 / span 2;
+        grid-row: span 6 / span 6;
+    }
+
+    .div2 {
+        grid-column: span 2 / span 2;
+        grid-row: span 3 / span 3;
+        grid-column-start: 3;
+    }
+
+    .div3 {
+        grid-column: span 4 / span 4;
+        grid-row: span 3 / span 3;
+        grid-column-start: 3;
+        grid-row-start: 4;
+    }
+
+    .div4 {
+        grid-column: span 2 / span 2;
+        grid-row: span 3 / span 3;
+        grid-column-start: 5;
+        grid-row-start: 1;
+    }
+
+    .div5 {
+        grid-column: span 2 / span 2;
+        grid-row: span 6 / span 6;
+        grid-column-start: 7;
+        grid-row-start: 1;
+    }
+    .v_tips_1 {
+        position: absolute;
+        bottom: -32%;
+        color: white;
+        transition: 0.5s ease;
+        padding: 0.5em;
+        z-index: 100;
+        border-radius: 1em;
+        backdrop-filter: blur(50px);
+        /* filter: brightness(0.5); */
+    }
+    .v_tips {
+        position: absolute;
+        bottom: -50%;
+        color: white;
+        transition: 0.5s ease;
+        padding: 0.5em;
+        z-index: 100;
+        border-radius: 1em;
+        backdrop-filter: blur(50px);
+        /* filter: brightness(0.5); */
+    }
+</style>

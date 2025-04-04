@@ -23,24 +23,31 @@ import { Image } from "astro:assets"
     </div>
     <ul>
       <li>
-        <p>
+        <div>
           <Icon1 />
+        </div>
+        <p>
+          Reduces stress: A cat's purr has a calming effect and can reduce
+          anxiety.
         </p>
-        Reduces stress: A cat's purr has a calming effect and can reduce anxiety.
       </li>
       <li>
-        <p>
+        <div>
           <Icon2 />
+        </div>
+        <p>
+          Improves health: Studies have shown that living with cats can lower
+          blood pressure and the risk of heart disease.
         </p>
-        Improves health: Studies have shown that living with cats can lower blood
-        pressure and the risk of heart disease.
       </li>
       <li>
-        <p>
+        <div>
           <Icon3 />
+        </div>
+        <p>
+          They always make you smile: Their wit and pranks are an antidote to a
+          bad mood.
         </p>
-        They always make you smile: Their wit and pranks are an antidote to a bad
-        mood.
       </li>
     </ul>
   </div>
@@ -51,10 +58,7 @@ import { Image } from "astro:assets"
     width: 100%;
     height: 650px;
     color: var(--text);
-    > div {
-      width: 50%;
-      height: 100%;
-    }
+
     img {
       width: 100%;
       object-fit: cover;
@@ -73,7 +77,7 @@ import { Image } from "astro:assets"
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding-left: 3em;
+    gap: 10px;
   }
   ul {
     display: flex;
@@ -102,11 +106,8 @@ import { Image } from "astro:assets"
     &:nth-child(3):hover {
       outline-color: rgb(231, 112, 0);
     }
-    & > * {
-      transition: 0.4s ease-in-out;
-    }
-    &:hover > * {
-      transform: scale(1.4);
+    > div {
+      text-align: center;
     }
 
     & p {

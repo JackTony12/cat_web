@@ -5,7 +5,7 @@ const CatsArray = () => {
   const cats = [
     "/images/herocat.png",
     "/images/herocat1.png",
-    "images/herocat2.png",
+    "images/herocat2.webp",
   ]
   const [catIndex, setCatIndex] = useState(0)
   const [isFading, setIsFading] = useState(false)
@@ -24,7 +24,7 @@ const CatsArray = () => {
   }
 
   return (
-    <div className='cat_section'>
+    <div className='cat_carousel'>
       <img
         src={cats[catIndex]}
         alt='cat'

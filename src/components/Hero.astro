@@ -2,14 +2,16 @@
 import CatsArray from "./functions/catsArray.jsx"
 ---
 
-<section id=''>
+<section id='hero'>
   <div class='cat_content'>
     <div>
       <h1>Why don't you have a cat?</h1>
       <p>
-        Having a cat brings joy, companionship, and endless adorable moments
+        Having a cat brings joy, companionship, and endless adorable moments filled with love, warmth, and playful antics.
       </p>
-      <button>Look your favorite</button>
+      <button>
+        <a href="#cats">Look your favorite</a>
+        </button>
     </div>
   </div>
   <CatsArray client:load />
@@ -19,13 +21,15 @@ import CatsArray from "./functions/catsArray.jsx"
   section {
     width: 100%;
     display: flex;
+
     padding-top: 10em;
+    height: 1000px;
     > div {
-      width: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+   
   }
   .cat_content {
     padding: 0 2em;
@@ -35,7 +39,7 @@ import CatsArray from "./functions/catsArray.jsx"
       font-size: clamp(3rem, 5vw, 2.5rem);
     }
   }
-  .cat_container {
+  .cat_carousel {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,5 +66,5 @@ import CatsArray from "./functions/catsArray.jsx"
     &:active {
       transform: scale(0.9);
     }
-  }
+
 </style>

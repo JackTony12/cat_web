@@ -2,7 +2,7 @@
 <html lang='en'>
   <head>
     <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
+    <meta name='viewport' content='initial-scale=1.0,width=device-width ' />
     <link rel='icon' type='image/svg+xml' href='/src/assets/cat.ico' />
     <meta name='generator' content={Astro.generator} />
     <title>FEELINO | Your adorable page</title>
@@ -26,11 +26,8 @@
   h3 {
     text-wrap: pretty;
   }
-  body {
-    margin: 0;
-    /* width: 100%; */
-    max-width: 1200px;
-    margin: 0 auto;
+  html {
+    scroll-behavior: smooth;
     background: linear-gradient(
       65deg,
       var(--gray),
@@ -39,10 +36,17 @@
       var(--gray)
     );
   }
-  html {
-    background-color: transparent;
-    scroll-behavior: smooth;
+  body {
+    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: transparent;
   }
+  a {
+    text-decoration: none;
+    color: var(--white);
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -77,24 +81,141 @@
       background: var(--gray3);
     }
   }
-  /* @media (width <= 768px) {
-    section {
+  /* media queries samall screens  */
+  @media (width < 768px) {
+    #hero {
       flex-direction: column;
-      & img {
-        width: 100%;
-      }
       > div {
         width: 100%;
+        display: flex;
         justify-content: center;
         align-items: center;
       }
     }
-  } */
-  /* @media (width > 768px) { */
-  /* seciont {
+    .cat_content {
+      height: 40%;
+    }
+    .cat_carousel {
+      height: 60%;
       & img {
         height: 100%;
       }
     }
-  } */
+    .many_cats {
+      flex-direction: column;
+      gap: 2em;
+      height: 900px;
+      > div {
+        width: 80%;
+        margin: 0 auto;
+      }
+      > div:nth-child(1) {
+        height: 40%;
+      }
+      > div:nth-child(2) {
+        height: 60%;
+      }
+    }
+    .m_personalities {
+      & p {
+        font-size: 0.7em;
+      }
+    }
+    .benefits,
+    .history {
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      & img {
+        filter: brightness(0.7);
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .b_text,
+    .cats_info {
+      background: transparent;
+      backdrop-filter: blur(5px);
+      border-radius: 1em;
+      border: 3px solid var(--gray05);
+      position: absolute;
+      padding: 2em 1em;
+      bottom: 10%;
+
+      & p,
+      h2 {
+        color: white;
+      }
+      > div {
+        border-color: var(--gray05);
+      }
+    }
+    .b_text {
+      width: 90%;
+    }
+    .cats_info {
+      width: 90%;
+      h2,
+      p {
+        color: white;
+      }
+    }
+    nav {
+      flex-direction: column;
+    }
+  }
+  /* //media queries for larger screens---------------------------------------*/
+  @media (width >= 768px) {
+    #hero {
+      height: 650px;
+      flex-direction: row;
+    }
+    .cat_carousel {
+      width: 50%;
+      & img {
+        height: 100%;
+      }
+    }
+    cat_content {
+      width: 50%;
+    }
+    .many_cats {
+      flex-direction: row;
+      height: 500px;
+      width: 100%;
+      > div {
+        width: 50%;
+      }
+    }
+    .m_personalities {
+      & h3 {
+        font-size: 1rem;
+      }
+      & p {
+        font-size: 0.9em;
+      }
+    }
+    .benefits {
+      > div {
+        width: 50%;
+        height: 100%;
+      }
+    }
+    .b_text {
+      padding-left: 3em;
+    }
+    .history {
+      > div:nth-child(1) {
+        width: 40%;
+      }
+      > div:nth-child(2) {
+        width: 60%;
+      }
+      p,
+      h2 {
+        color: var(--text);
+      }
+    }
+  }
 </style>

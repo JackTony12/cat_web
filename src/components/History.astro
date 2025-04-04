@@ -1,0 +1,108 @@
+---
+import { Image } from "astro:assets"
+import catmouth from "../../public/images/catmouth.png"
+//code cas
+---
+
+<section id='History' class='history'>
+  <div class='cats_image'>
+    <Image src={catmouth} alt='catmouth' />
+  </div>
+  <div class='cats_info'>
+    <div>
+      <h2>A Brief History of Cats</h2>
+      <p>
+        Cats began their domestication around 4,000 years ago in Egypt, where
+        they were revered for their pest control abilities. Over time, they
+        spread throughout the world, becoming one of the most popular pets.
+      </p>
+    </div>
+    <div class='tips'>
+      <div>
+        <span> + </span>
+        <span id='counter1'>0</span>
+        <p>Different species</p>
+      </div>
+      <div>
+        <span>+</span>
+        <span id='counter2'>0</span>
+        <p>Hours seleeping</p>
+      </div>
+      <div>
+        <span id='counter3'>0</span>
+        <span>°</span>
+        <p>Turn of his ears</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  section {
+    display: flex;
+    width: 100%;
+    height: 500px;
+  }
+  img {
+    mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 30%
+      ),
+      linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 30%);
+    mask-composite: intersect;
+  }
+  .tips {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 3em;
+  }
+
+  span {
+    font-size: 3em;
+    font-weight: bolder;
+    color: var(--pink);
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const viewport = document.getElementById("History")
+    const count1 = document.getElementById("counter1")
+    const count2 = document.getElementById("counter2")
+    const count3 = document.getElementById("counter3")
+
+    let hasRun = false // Para asegurarnos de que solo se ejecute una vez
+
+    if (viewport && count1 && count2 && count3) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !hasRun) {
+          hasRun = true // Evita que se repita
+          startCounter(count1, 73, () => {
+            startCounter(count2, 14, () => {
+              startCounter(count3, 180, () => {})
+            })
+          })
+        }
+      })
+
+      observer.observe(viewport)
+    }
+  })
+
+  // Función para iniciar un contador
+  function startCounter(
+    element: HTMLElement,
+    maxValue: number,
+    callback: () => void,
+  ) {
+    let interval = setInterval(() => {
+      element.textContent = Math.floor(Math.random() * maxValue).toString()
+    }, 50)
+
+    setTimeout(() => {
+      clearInterval(interval)
+      element.textContent = maxValue.toString()
+      if (callback) callback() // Llama al siguiente contador si existe
+    }, 1500)
+  }
+</script>

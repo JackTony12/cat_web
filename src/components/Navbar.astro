@@ -27,14 +27,17 @@
     >
     <a href='#History' class='navButton' name='History' type='button'>History</a
     >
-    <a href='#About' class='navButton' name='About' type='button'>About</a>
+    <a href='#Videos' class='navButton' name='About' type='button'
+      >Curiosidades</a
+    >
   </ul>
 </nav>
 <style>
   nav {
     background-color: transparent;
     display: flex;
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     justify-content: space-between;
     align-items: center;
     padding: 0 2em;
@@ -68,15 +71,3 @@
     color: var(--pink);
   }
 </style>
-<script>
-  const buttons = document.querySelectorAll(".navButton")
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const sectionId = button.name
-      const section = document.getElementById(`#{sectionId}`)
-      if (section) {
-        section.scroll({ behavior: "smooth" })
-      }
-    })
-  })
-</script>
