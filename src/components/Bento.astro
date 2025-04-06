@@ -63,10 +63,11 @@ import { Image } from "astro:assets"
         width: 100%;
         object-fit: cover;
     }
+
     .parent {
         display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
         gap: 8px;
         & img,
         & video {
@@ -89,36 +90,28 @@ import { Image } from "astro:assets"
         }
     }
 
-    .div1 {
-        grid-column: span 2 / span 2;
-        grid-row: span 6 / span 6;
-    }
-
-    .div2 {
-        grid-column: span 2 / span 2;
-        grid-row: span 3 / span 3;
-        grid-column-start: 3;
-    }
-
-    .div3 {
-        grid-column: span 4 / span 4;
-        grid-row: span 3 / span 3;
-        grid-column-start: 3;
-        grid-row-start: 4;
+    .div5 {
+        grid-row: span 4 / span 4;
     }
 
     .div4 {
-        grid-column: span 2 / span 2;
-        grid-row: span 3 / span 3;
-        grid-column-start: 5;
-        grid-row-start: 1;
+        grid-row: span 4 / span 4;
     }
 
-    .div5 {
+    .div2 {
+        grid-row: span 3 / span 3;
+        grid-row-start: 5;
+    }
+
+    .div1 {
+        grid-row: span 3 / span 3;
+        grid-row-start: 5;
+    }
+
+    .div3 {
         grid-column: span 2 / span 2;
-        grid-row: span 6 / span 6;
-        grid-column-start: 7;
-        grid-row-start: 1;
+        grid-row: span 4 / span 4;
+        grid-row-start: 9;
     }
 
     .v_tips {
@@ -131,13 +124,59 @@ import { Image } from "astro:assets"
         border-radius: 1em;
         backdrop-filter: blur(50px);
     }
-    @media (width < 768px) {
+    .v_tips {
+        h2 {
+            font-size: 1em;
+        }
+        p {
+            font-size: 0.7em;
+        }
+    }
+
+    @media (width > 768px) {
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            gap: 8px;
+        }
+        .div1 {
+            grid-column: span 2 / span 2;
+            grid-row: span 6 / span 6;
+        }
+
+        .div2 {
+            grid-column: span 2 / span 2;
+            grid-row: span 3 / span 3;
+            grid-column-start: 3;
+        }
+
+        .div3 {
+            grid-column: span 4 / span 4;
+            grid-row: span 3 / span 3;
+            grid-column-start: 3;
+            grid-row-start: 4;
+        }
+
+        .div4 {
+            grid-column: span 2 / span 2;
+            grid-row: span 3 / span 3;
+            grid-column-start: 5;
+            grid-row-start: 1;
+        }
+
+        .div5 {
+            grid-column: span 2 / span 2;
+            grid-row: span 6 / span 6;
+            grid-column-start: 7;
+            grid-row-start: 1;
+        }
         .v_tips {
             h2 {
-                font-size: 1em;
+                font-size: 1.5em;
             }
             p {
-                font-size: 0.7em;
+                font-size: 1em;
             }
         }
     }
