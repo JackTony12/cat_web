@@ -42,6 +42,13 @@
     margin: 0 auto;
     background: transparent;
   }
+  html,
+  a,
+  button {
+    cursor:
+      url("/src/assets/paw.png") 16 16,
+      auto;
+  }
   a {
     text-decoration: none;
     color: var(--white);
@@ -69,16 +76,17 @@
   .navButton {
     border: none;
     background: transparent;
-    cursor: pointer;
     color: var(--white);
-    font-size: 1.2rem;
+    font-size: 1em;
     padding: 0.5em 1em;
     transition: 1s ease;
     border-radius: 0.4em;
     text-decoration: none;
-    transition: 0.5s ease;
+    transition: 0.2s ease;
+    outline: 0px solid transparent;
     &:hover {
-      border: 1px solid var(--white);
+      outline-color: var(--white);
+      outline-width: 1px;
     }
   }
   /* media queries samall screens  */
@@ -136,9 +144,9 @@
     .b_text,
     .cats_info {
       background: transparent;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(30px);
       border-radius: 1em;
-      border: 3px solid var(--gray05);
+      border: 1px solid var(--gray05);
       position: absolute;
       padding: 2em 1em;
       bottom: 10%;
@@ -163,6 +171,7 @@
     }
     nav {
       flex-direction: column;
+      font-size: 0.8em;
     }
   }
   /* //media queries for larger screens---------------------------------------*/

@@ -71,12 +71,12 @@ import catmouth from "../../public/images/catmouth.webp"
     const count2 = document.getElementById("counter2")
     const count3 = document.getElementById("counter3")
 
-    let hasRun = false // Para asegurarnos de que solo se ejecute una vez
+    let hasRun = false
 
     if (viewport && count1 && count2 && count3) {
       const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && !hasRun) {
-          hasRun = true // Evita que se repita
+          hasRun = true
           startCounter(count1, 73, () => {
             startCounter(count2, 14, () => {
               startCounter(count3, 180, () => {})
@@ -89,7 +89,6 @@ import catmouth from "../../public/images/catmouth.webp"
     }
   })
 
-  // Función para iniciar un contador
   function startCounter(
     element: HTMLElement,
     maxValue: number,
@@ -102,7 +101,7 @@ import catmouth from "../../public/images/catmouth.webp"
     setTimeout(() => {
       clearInterval(interval)
       element.textContent = maxValue.toString()
-      if (callback) callback() // Llama al siguiente contador si existe
+      if (callback) callback()
     }, 1500)
   }
 </script>

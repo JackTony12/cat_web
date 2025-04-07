@@ -21,9 +21,10 @@
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s ease;
+  border: 1px solid var(--gray05);
+  
   &:hover {
     backdrop-filter: blur(0px);
-    border: 1px solid var(--gray05);
   }
   & svg {
     display: inline-block;

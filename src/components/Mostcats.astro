@@ -1,0 +1,141 @@
+---
+import type { MetaStore } from "astro:content"
+import most1 from "../../public/images/mostcats1.jpg"
+import most2 from "../../public/images/mostcats2.webp"
+import most3 from "../../public/images/mostcats3.jpg"
+
+const cats = [
+    {
+        name: "Ashera Cat",
+        description:
+            "The Ashera cat is considered the most expensive cat breed in the world, with prices reaching $100,000 or more. This is due to its rarity and because it is a hybrid breed.",
+    },
+    {
+        name: "Scottish Fold Cat",
+        description:
+            "Scottish Fold cats are one of the fluffiest and most expensive cat breeds approximately worth $2000. They are not as common as other breeds, which increases their price.",
+        alt: "cat1",
+    },
+    {
+        name: "Khao Manee Cat",
+        description:
+            "The Khao Manee is an ancient and rare cat breed from Thailand Its approximate value is $7,000 - $11,000 It is known for its distinctive pure white coat and bright, piercing blue eyes.",
+        alt: "cat2",
+    },
+]
+---
+
+<section id='Mostcats' class='most_cats'>
+    <div>
+        <h2 class='most_title'>The most expesive cats in the world</h2>
+    </div>
+    <div class='m_cat_img_container'>
+        <img src={most1.src} alt='cat1' id='mostcat' />
+    </div>
+    <div class='m_cat_selector'>
+        {
+            cats.map((cat) => {
+                return (
+                    <div class='most_cat_target' id='most_cat'>
+                        <h3>{cat.name}</h3>
+                        <p>{cat.description}</p>
+                    </div>
+                )
+            })
+        }
+    </div>
+</section>
+<style>
+    .most_cats {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+    }
+    .most_title {
+        font-size: clamp(1.5em, 2.5vw, 2em);
+        color: var(--white);
+    }
+    .m_cat_img_container {
+        width: 100%;
+        height: 350px;
+        display: flex;
+
+        justify-content: center;
+        & img {
+            height: 100%;
+            object-fit: cover;
+            mask-image: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 1) 30%
+                ),
+                linear-gradient(
+                    to left,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 1) 30%
+                ),
+                linear-gradient(
+                    to right,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 1) 30%
+                );
+            mask-composite: intersect;
+        }
+    }
+    .m_cat {
+        border: 1px solid red;
+    }
+    .m_cat_selector {
+        display: flex;
+    }
+
+    .most_cat_active {
+        padding: 0.4em 0.6em;
+        border-radius: 0.5em;
+        background: linear-gradient(90deg, pink, transparent);
+        box-shadow: -10px 0 15px rgba(0, 0, 0, 0.199);
+    }
+    @media (width < 768px) {
+        .most_cat_target {
+            p {
+                font-size: 0.7em;
+            }
+        }
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const catImg = document.querySelector("#mostcat") as HTMLImageElement
+        const cats = document.querySelectorAll(".most_cat_target")
+        console.log(catImg)
+        if (!catImg || !cats) return
+
+        const urls = [
+            {
+                src: "/images/mostcats1.jpg",
+                alt: "Gato Scottish Fold",
+            },
+            {
+                src: "/images/mostcats3.jpg",
+                alt: "Otro gato cool",
+            },
+            {
+                src: "/images/mostcats2.webp",
+                alt: "Gato Persa",
+            },
+        ]
+
+        cats.forEach((cat, index) => {
+            cat.addEventListener("click", () => {
+                catImg.src = urls[index].src
+                catImg.alt = urls[index].alt
+                cat.classList.add("most_cat_active")
+                cats.forEach((c) => {
+                    if (c !== cat) {
+                        c.classList.remove("most_cat_active")
+                    }
+                })
+            })
+        })
+    })
+</script>
