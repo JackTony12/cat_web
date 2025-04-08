@@ -1,0 +1,116 @@
+---
+
+---
+
+<section class='get_your_cat'>
+    <div class='poster_father'>
+        <div class='poster-container'>
+            <div class='card left'>
+                <img src='/images/memorycats1.jpg' alt='Gato Izquierdo' />
+            </div>
+            <div class='card center'>
+                <img src='/images/memorycats2.jpg' alt='Gato Central' />
+            </div>
+            <div class='card right'>
+                <img src='/images/memorycats3.jpg' alt='Gato Derecho' />
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Start making memories with your kitty</h2>
+        <p>
+            Start creating unforgettable moments with your cat. From your first
+            naps together to those unexpected pranks, every day with your kitty
+            is a new story worth remembering. Turn your home into a haven filled
+            with purrs, games, and feline love!
+        </p>
+    </div>
+</section>
+<style>
+    .get_your_cat {
+        display: flex;
+        > div {
+            width: 50%;
+        }
+    }
+    .poster_father {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .poster-container {
+        display: flex;
+        width: 200px;
+        height: 300px;
+        gap: 20px;
+        position: relative;
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        border-radius: 0.5em;
+        border: 5px solid var(--white);
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        background-color: white;
+    }
+
+    .card img {
+        width: 100%;
+        height: 90%;
+        border-radius: 0 0 0.5em 0.5em;
+        object-fit: cover;
+    }
+
+    .card.center {
+        z-index: 2;
+    }
+    .card.center:hover {
+        z-index: 200;
+    }
+
+    .card.left {
+        position: absolute;
+        left: -80%;
+        top: 20%;
+        transform: rotate(-25deg);
+        z-index: 100;
+    }
+
+    .card.right {
+        top: 20%;
+        z-index: 100;
+        position: absolute;
+        right: -70%;
+        transform: rotate(25deg);
+    }
+
+    .card:hover {
+        transform: scale(1.1);
+        z-index: 3;
+    }
+
+    .card.left:hover {
+        transform: rotate(0deg) scale(1.1);
+    }
+
+    .card.right:hover {
+        transform: rotate(0deg) scale(1.1);
+    }
+    @media (width < 768px) {
+        .get_your_cat {
+            flex-direction: column;
+            gap: 9em;
+            > div {
+                width: 100%;
+                padding: 0 2em;
+            }
+        }
+        .poster-container {
+            width: 150px;
+            height: 250px;
+        }
+    }
+</style>

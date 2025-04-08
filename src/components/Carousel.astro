@@ -1,0 +1,73 @@
+---
+
+---
+
+<style>
+    .carousel-container {
+        overflow: hidden;
+        width: 100%;
+        background: transparent;
+        margin-top: 1.5em;
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+    }
+
+    .carousel-track {
+        display: flex;
+        width: max-content;
+        animation: scroll-left 30s linear infinite;
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+
+    .carousel-track img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        margin-right: 10px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        transition: 0.4s ease;
+        &:hover {
+            transform: scale(1.4);
+        }
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+</style>
+
+<div class='carousel-container'>
+    <div class='carousel-track' id='carouselTrack'>
+        {
+            Array.from({ length: 2 }).map(() => (
+                <>
+                    <img src='/h_images/history1.jpg' alt='Imagen 1' />
+                    <img src='/h_images/history2.jpg' alt='Imagen 2' />
+                    <img src='/h_images/history3.webp' alt='Imagen 3' />
+                    <img src='/h_images/history4.jpg' alt='Imagen 4' />
+                    <img src='/h_images/history5.jpg' alt='Imagen 5' />
+                </>
+            ))
+        }
+    </div>
+</div>
